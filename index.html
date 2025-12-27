@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maze Flowers Friendship</title>
+<style>
+body{
+  margin:0;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  overflow:hidden;
+}
+svg{
+  width:100vw;
+  height:100vh;
+}
+#maze{
+  fill:none;
+  stroke:#ffb6c1;
+  stroke-width:3;
+  stroke-dasharray:2000;
+  stroke-dashoffset:2000;
+  animation:drawMaze 6s ease forwards,hideMaze 0.6s ease forwards;
+  animation-delay:0s,6s;
+}
+#friends{
+  fill:none;
+  stroke:#ffb6c1;
+  stroke-width:5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-dasharray:1500;
+  stroke-dashoffset:1500;
+  animation:drawFriends 4s ease forwards,glowFriends 1.2s infinite alternate;
+  animation-delay:6s,10s;
+}
+.flower{
+  fill:#ff8fc4;
+  filter:drop-shadow(0 0 8px #ff69b4) drop-shadow(0 0 18px #ff69b4);
+}
+.sparkle{
+  fill:white;
+  opacity:0.8;
+  filter:drop-shadow(0 0 6px white);
+}
+#friendText{
+  fill:#ffb6c1;
+  font-size:22px;
+  font-weight:600;
+  text-anchor:middle;
+  opacity:0;
+  animation:showText 1s ease forwards,glowText 1.2s infinite alternate;
+  animation-delay:10s,11s;
+}
+@keyframes drawMaze{to{stroke-dashoffset:0}}
+@keyframes hideMaze{to{opacity:0}}
+@keyframes drawFriends{to{stroke-dashoffset:0}}
+@keyframes glowFriends{from{filter:drop-shadow(0 0 10px #ff69b4)}to{filter:drop-shadow(0 0 30px #ff69b4)}}
+@keyframes showText{to{opacity:1}}
+@keyframes glowText{from{text-shadow:0 0 10px #ff69b4}to{text-shadow:0 0 28px #ff69b4}}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 300 500" preserveAspectRatio="xMidYMid meet">
+<path id="maze" d="M20 20 H280 V60 H60 V100 H200 V140 H100 V180 H260 V220 H40 V260 H180 V300 H80 V340 H260 V380 H120 V420 H280"/>
+<circle r="6" class="flower"><animateMotion dur="12s" repeatCount="indefinite" begin="6s"><mpath href="#maze"/></animateMotion></circle>
+<circle r="5" class="flower"><animateMotion dur="16s" repeatCount="indefinite" begin="6.5s"><mpath href="#maze"/></animateMotion></circle>
+<circle class="sparkle" r="2" cx="40"><animate attributeName="cy" from="-20" to="520" dur="8s" repeatCount="indefinite"/></circle>
+<circle class="sparkle" r="1.5" cx="140"><animate attributeName="cy" from="-40" to="520" dur="10s" repeatCount="indefinite"/></circle>
+<circle class="sparkle" r="2" cx="240"><animate attributeName="cy" from="-10" to="520" dur="9s" repeatCount="indefinite"/></circle>
+<path id="friends" d="M90 220 Q90 185 125 185 Q160 185 160 220 Q160 255 125 255 Q90 255 90 220 M190 220 Q190 185 225 185 Q260 185 260 220 Q260 255 225 255 Q190 255 190 220 M115 215 Q120 210 125 215 M135 215 Q140 210 145 215 M205 215 Q210 210 215 215 M225 215 Q230 210 235 215 M115 235 Q125 245 135 235 M205 235 Q215 245 225 235"/>
+<text id="friendText" x="150" y="360">
+<tspan x="150" dy="0" font-size="26">Dipashri</tspan>
+<tspan x="150" dy="28">hamesha wali dost</tspan>
+<tspan x="150" dy="26">• trust • laughter • forever •</tspan>
+</text>
+</svg>
+</body>
+</html>
